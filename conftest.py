@@ -14,7 +14,7 @@ def pytest_addoption(parser):
 
 
 @pytest.fixture(scope='function')
-def browser(request):
+def browser(request) -> webdriver.Chrome:
     browser_name = request.config.getoption('browser_name')
     user_language = request.config.getoption('user_language')
     browser = None
