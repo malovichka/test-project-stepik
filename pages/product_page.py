@@ -1,5 +1,6 @@
 from .base_page import BasePage
-from .locators import ProductPageLocators
+from .locators import ProductPageLocators, MainPageLocators
+
 
 class ProductPage(BasePage):
 
@@ -12,13 +13,18 @@ class ProductPage(BasePage):
             'Substring "promo" not found in URL'
 
     def should_be_added_to_basket(self):
-        #message that product was added to basket
-        assert True
         #right product was added
-        assert True
+        product_in_catalogue = self.get_text(*ProductPageLocators.PRODUCT_NAME_IN_BREADCRUMBS)
+        product_in_basket = self.get_text(*ProductPageLocators.PRODUCT_NAME_IN_MESSAGE)       
+        assert product_in_catalogue == product_in_basket, \
+            f'Added {product_in_catalogue} to basket, got {product_in_basket} in message instead'
 
     def should_be_basket_price(self):
         #message with basket total price
-        assert True
+        price_of_product = self.get_text(*ProductPageLocators.PRODUCT_PRICE)
+        basket_price_in_message = self.get_text(*ProductPageLocators.BASKET_TOTAL_MESSAGE)
+        assert price_of_product == basket_price_in_message, \
+            f'Expected {price_of_product}, got {basket_price_in_message} in message instead'
+        
 
     

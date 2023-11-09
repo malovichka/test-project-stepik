@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 class MainPageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, '#login_link')
 
+
 class LoginPageLocators:
     LOGIN_USERNAME = (By.ID, 'id_login-username')
     LOGIN_PASSWORD = (By.ID, 'id_login-password')
@@ -15,5 +16,9 @@ class LoginPageLocators:
 
 class ProductPageLocators:
     ADD_TO_BASKET_BUTTON = (By.CLASS_NAME, 'btn-add-to-basket')
-    
+    PRODUCT_NAME_IN_BREADCRUMBS = (By.CSS_SELECTOR, '.breadcrumb > .active')
+    PRODUCT_NAME_IN_MESSAGE = (By.CSS_SELECTOR, '#messages > .alert-success:first-child > .alertinner > strong')
+    BASKET_TOTAL_MESSAGE = (By.CSS_SELECTOR, '#messages > .alert:last-child > .alertinner > p > strong')
+    PRODUCT_PRICE = (By.CSS_SELECTOR, '.product_page .price_color')
+
         

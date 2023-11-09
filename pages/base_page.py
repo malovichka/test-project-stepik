@@ -37,3 +37,7 @@ class BasePage:
         except (NoAlertPresentException, TimeoutException):
             print('No second alert presented')
 
+    def get_text(self, how, what):
+        element = self.browser.find_element(how, what)
+        element_text = element.text
+        return element_text

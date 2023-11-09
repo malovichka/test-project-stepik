@@ -10,8 +10,7 @@ def test_guest_can_add_product_to_basket(browser):
     page.should_be_promo_url()
     page.add_product_to_basket()
     page.solve_quiz_and_get_code()
-    time.sleep(600)
-    # page.should_be_added_to_basket()
-    # page.should_be_basket_price()
+    page.should_be_added_to_basket()
+    page.should_be_basket_price()
 
 
