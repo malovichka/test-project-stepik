@@ -26,5 +26,17 @@ class ProductPage(BasePage):
         assert price_of_product == basket_price_in_message, \
             f'Expected "{price_of_product}", got "{basket_price_in_message}" in message instead'
         
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            'Success message is presented, but it should not be'
+        
+    def should_message_disappear(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            'Message still present, but it should dissappear'
+        
+    def should_be_removed_product(self):
+        assert self.is_disappeared(*ProductPageLocators.PRODUCT_IN_BASKET), \
+            'Product still present, but it should dissappear'
+        
 
     

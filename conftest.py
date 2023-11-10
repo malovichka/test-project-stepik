@@ -25,7 +25,7 @@ def browser(request) -> webdriver.Chrome:
                                                {'intl.accept_languages': user_language})
         chrome_options.add_argument('--incognito')
         browser = webdriver.Chrome(options=chrome_options)
-        browser.implicitly_wait(10)
+        browser.implicitly_wait(1)
     elif browser_name == 'firefox':
         print('\nstart browser for testing...')
         ff_options = webdriver.FirefoxOptions()

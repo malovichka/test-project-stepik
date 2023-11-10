@@ -20,5 +20,5 @@ class ProductPageLocators:
     PRODUCT_NAME_IN_MESSAGE = (By.CSS_SELECTOR, '#messages > .alert-success:first-child > .alertinner > strong')
     BASKET_TOTAL_MESSAGE = (By.CSS_SELECTOR, '#messages > .alert:last-child > .alertinner > p > strong')
     PRODUCT_PRICE = (By.CSS_SELECTOR, '.product_page .price_color')
-
-        
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, '#messages > .alert-success:first-child > .alertinner')
+    PRODUCT_IN_BASKET = None
