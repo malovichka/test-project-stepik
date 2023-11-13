@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import ProductPageLocators, MainPageLocators
+from .locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
@@ -34,9 +34,7 @@ class ProductPage(BasePage):
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
             'Message still present, but it should dissappear'
         
-    def should_be_removed_product(self):
-        assert self.is_disappeared(*ProductPageLocators.PRODUCT_IN_BASKET), \
-            'Product still present, but it should dissappear'
+
         
 
     
