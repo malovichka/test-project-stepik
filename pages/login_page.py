@@ -3,6 +3,17 @@ from .locators import LoginPageLocators
 
 
 class LoginPage(BasePage):
+    def register_new_user(self, email, password):
+        registration_email = self.browser.find_element(*LoginPageLocators.REGISTRATION_EMAIL)
+        registration_email.send_keys(email)
+        registration_password_creation = self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD_CREATION)
+        registration_password_creation.send_keys(password)
+        registration_password_confirmation = self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD_CONFIRMATION)
+        registration_password_confirmation.send_keys(password)
+        register_button = self.browser.find_element(*LoginPageLocators.REGISTRATION_SUBMIT_BUTTON)
+        register_button.click()
+
+
     def should_be_login_page(self):
         self.should_be_login_url()
         self.should_be_login_form()
@@ -34,4 +45,4 @@ class LoginPage(BasePage):
             'Registration_password_confirmation field was not found'
         assert self.is_element_present(*LoginPageLocators.REGISTRATION_SUBMIT_BUTTON), \
             'Registration_submit_button was not found'
-        
+    
